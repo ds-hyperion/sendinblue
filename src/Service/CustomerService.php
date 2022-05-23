@@ -2,27 +2,28 @@
 
 namespace Hyperion\Sendinblue\Service;
 
-use Exception;
-
 class CustomerService extends AbstractSendinblueService
 {
-    public function createCustomer(
+    public static function createCustomer(
         string $email,
         array $customerInfo,
         array $listIds = []
     )
     {
+        $configuration = self::getCredentials();
+
+        $apiInstance = new \SendinBlue\Client\Api\ContactsApi(
+            new \GuzzleHttp\Client(),
+            $configuration
+        );
+
         $createContact = new \SendinBlue\Client\Model\CreateContact([
             'email' => $email,
             'updateEnabled' => true,
-            'attributes' => [$customerInfo],
-            'listIds' =>[$listIds]
+            'attributes' => $customerInfo,
+            'listIds' => $listIds
         ]);
 
-        try {
-            $result = $this->apiInstance->createContact($createContact);
-        } catch (Exception $e) {
-            echo 'Exception when calling ContactsApi->createContact: ', $e->getMessage(), PHP_EOL;
-        }
+        return $apiInstance->createContact($createContact);
     }
 }
