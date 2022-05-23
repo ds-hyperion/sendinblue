@@ -6,15 +6,18 @@ use Hyperion\Sendinblue\Plugin;
 
 abstract class AbstractSendinblueService
 {
-    protected $apiInstance;
+    private static $credentials = null;
 
-    public function __construct()
+    protected static function getCredentials()
     {
-        $credentials = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', get_option(Plugin::SENDINBLUE_API_KEY_OPTION));
+        if(get_option(Plugin::SENDINBLUE_API_KEY_OPTION) === false) {
+            throw new \Exception("API key for sendinblue not configured");
+        }
 
-        $this->apiInstance = new SendinBlue\Client\Api\ContactsApi(
-            new GuzzleHttp\Client(),
-            $credentials
-        );
+        if(!self::$credentials) {
+            self::$credentials = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', get_option(Plugin::SENDINBLUE_API_KEY_OPTION));
+        }
+
+        return self::$credentials;
     }
 }
