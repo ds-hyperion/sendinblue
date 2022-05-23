@@ -13,7 +13,7 @@ class CustomerService extends AbstractSendinblueService
         $configuration = self::getCredentials();
 
         $apiInstance = new \SendinBlue\Client\Api\ContactsApi(
-            new GuzzleHttp\Client(),
+            new \GuzzleHttp\Client(),
             $configuration
         );
 
