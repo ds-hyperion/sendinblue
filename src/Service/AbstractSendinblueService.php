@@ -15,7 +15,7 @@ abstract class AbstractSendinblueService
         }
 
         if(!self::$credentials) {
-            self::$credentials = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', get_option(Plugin::SENDINBLUE_API_KEY_OPTION));
+            self::$credentials = \SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', get_option(Plugin::SENDINBLUE_API_KEY_OPTION));
         }
 
         return self::$credentials;
