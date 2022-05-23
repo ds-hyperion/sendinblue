@@ -7,7 +7,11 @@
         <table class="form-table">
             <tr>
                 <th scope="row">Sendinblue API Key</th>
-                <td><input type="text" name="<?php echo \Hyperion\Sendinblue\Plugin::SENDINBLUE_API_KEY_OPTION; ?>" value="<?php echo esc_attr( get_option(\Hyperion\Sendinblue\Plugin::SENDINBLUE_API_KEY_OPTION) ); ?>" /></td>
+                <td><input type="text" name="<?php echo \Hyperion\Sendinblue\Plugin::SENDINBLUE_APIKEY_OPTION; ?>" value="<?php echo esc_attr( get_option(\Hyperion\Sendinblue\Plugin::SENDINBLUE_APIKEY_OPTION) ); ?>" /></td>
+            </tr>
+            <tr>
+                <th scope="row">Sendinblue client Key</th>
+                <td><input type="text" name="<?php echo \Hyperion\Sendinblue\Plugin::SENDINBLUE_CLIENTKEY_OPTION; ?>" value="<?php echo esc_attr( get_option(\Hyperion\Sendinblue\Plugin::SENDINBLUE_CLIENTKEY_OPTION) ); ?>" /></td>
             </tr>
         </table>
 

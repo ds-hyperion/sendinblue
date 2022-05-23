@@ -21,6 +21,7 @@ class Settings
 
     public static function registerPluginSettings()
     {
-        register_setting(self::SETTINGS_GROUP, \Hyperion\Sendinblue\Plugin::SENDINBLUE_API_KEY_OPTION);
+        register_setting(self::SETTINGS_GROUP, \Hyperion\Sendinblue\Plugin::SENDINBLUE_APIKEY_OPTION);
+        register_setting(self::SETTINGS_GROUP, \Hyperion\Sendinblue\Plugin::SENDINBLUE_CLIENTKEY_OPTION);
     }
 }
