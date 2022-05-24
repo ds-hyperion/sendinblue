@@ -1,6 +1,6 @@
 {
     "name": "hyperion/sendinblue",
-    "type": "wordpress-plugin",
+    "type": "wordpress-muplugin",
     "require": {
         "sendinblue/api-v3-sdk": "^8.2"
     },
