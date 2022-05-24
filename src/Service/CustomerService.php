@@ -20,8 +20,8 @@ class CustomerService extends AbstractSendinblueService
         $createContact = new \SendinBlue\Client\Model\CreateContact([
             'email' => $email,
             'updateEnabled' => true,
-            'attributes' => [$customerInfo],
-            'listIds' =>[$listIds]
+            'attributes' => $customerInfo,
+            'listIds' => $listIds
         ]);
 
         return $apiInstance->createContact($createContact);
